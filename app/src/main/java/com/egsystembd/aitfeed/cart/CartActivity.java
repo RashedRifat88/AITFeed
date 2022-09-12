@@ -20,6 +20,7 @@ import com.egsystembd.aitfeed.R;
 import com.egsystembd.aitfeed.credential.LoginActivity;
 import com.egsystembd.aitfeed.data.DatabaseHelper;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,7 +107,10 @@ public class CartActivity extends AppCompatActivity {
 
     public static void setTotalPrice(double total_price){
 //        totalPrice = total_price;
-        tv_total_price.setText("TK "+ String.valueOf(total_price));
+
+        DecimalFormat df = new DecimalFormat("####0.00");
+
+        tv_total_price.setText("TK "+ df.format(total_price));
     }
 
     private void loadRecyclerView() {

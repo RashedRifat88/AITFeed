@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.egsystembd.aitfeed.R;
 import com.egsystembd.aitfeed.data.DatabaseHelper;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -153,6 +154,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
     public void onBindViewHolder(final SubItemViewHolder holder, int position) {
         TextView txtSlNo = holder.txtSlNo;
         TextView tv_sub_item_name = holder.tv_sub_item_name;
+        TextView tv_bag_size = holder.tv_bag_size;
         TextView tv_sub_item_price = holder.tv_sub_item_price;
         TextView tv_quantity = holder.tv_quantity;
         TextView tv_remove_item = holder.tv_remove_item;
@@ -178,14 +180,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
 //        String subCategoryName = curProduct.getName();
 //        String subCategoryId = curProduct.getId().toString();
 //        String imgLink = curProduct.getPhoto();
-        tv_sub_item_name.setText(curProduct.getSub_category_name());
+        tv_sub_item_name.setText(curProduct.getCategory_name());
+        tv_bag_size.setText("Bag Size: " + curProduct.getBag_size().toString());
         tv_quantity.setText(curProduct.getQuantity());
 
         double quantity_item_d = Double.parseDouble(curProduct.getQuantity());
         double price_item_d = Double.parseDouble(curProduct.getSub_category_price());
         double price_item_total_d = quantity_item_d * price_item_d;
 
-        tv_sub_item_price.setText("Price: TK " + String.valueOf(price_item_total_d));
+        DecimalFormat df = new DecimalFormat("####0.00");
+
+        tv_sub_item_price.setText("Price: TK " + df.format(price_item_total_d));
 //        tv_sub_item_extra.setText(curProduct.getCategory_name());
 //        int item_row_id= curProduct.getId();
         String sub_item_id = curProduct.getSub_category_id();
@@ -204,10 +209,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
 
 
         Log.d("tag55555", "sumOfPrice: " + sumOfPrice1);
-//
-        Glide.with(context)
-                .load(curProduct.getImg_link())
-                .into(imageView);
+
+
+//        Glide.with(context)
+//                .load(curProduct.getImg_link())
+//                .into(imageView);
 
 
         double cost = 0;
@@ -225,7 +231,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
                 finalCost[0] = finalCost[0] + cost1;
                 quantity[0]++;
 
-                tv_sub_item_price.setText("Price: TK " + String.valueOf(finalCost[0]));
+                tv_sub_item_price.setText("Price: TK " + df.format(finalCost[0]));
                 tv_quantity.setText(String.valueOf(quantity[0]));
 
 
@@ -258,7 +264,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
                     finalCost[0] = finalCost[0] - cost2;
                     quantity[0]--;
 
-                    tv_sub_item_price.setText("Price: TK " + String.valueOf(finalCost[0]));
+                    tv_sub_item_price.setText("Price: TK " + df.format(finalCost[0]));
                     tv_quantity.setText(String.valueOf(quantity[0]));
 
                     updateItemInCart(item_row_id, String.valueOf(bag_size[0]), String.valueOf(quantity[0]), String.valueOf(finalCost[0]));
@@ -369,6 +375,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
 
         TextView txtSlNo;
         TextView tv_sub_item_name;
+        TextView tv_bag_size;
         TextView tv_remove_item;
         TextView tv_sub_item_extra;
         TextView tv_sub_item_price;
@@ -382,6 +389,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
         public SubItemViewHolder(View itemView) {
             super(itemView);
             tv_sub_item_name = itemView.findViewById(R.id.tv_sub_item_name);
+            tv_bag_size = itemView.findViewById(R.id.tv_bag_size);
 //            tv_remove_item = itemView.findViewById(R.id.tv_remove_item);
             tv_sub_item_price = itemView.findViewById(R.id.tv_sub_item_price);
             tv_quantity = itemView.findViewById(R.id.tv_quantity);

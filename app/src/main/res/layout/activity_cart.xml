@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,13 +12,13 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:minHeight="70dp"
         android:background="@drawable/rounded_corner18"
+        android:minHeight="70dp"
+        android:padding="16dp"
         tools:ignore="MissingConstraints">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/linear_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,76 +32,67 @@
                 android:id="@+id/iv_menu_top"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginRight="2dp"
                 android:layout_gravity="center"
+                android:layout_marginRight="2dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:padding="4dp"
                 android:src="@drawable/ic_arrow_back_2"
-                 />
+                app:tint="@color/white" />
 
 
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <!--            <TextView-->
+            <!--                android:id="@+id/tv_title"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_marginTop="0dp"-->
+            <!--                android:gravity="center"-->
+            <!--                android:fontFamily="@font/roboto_bold"-->
+            <!--                android:text="AIT Feed Cart Items"-->
+            <!--                android:textColor="@color/yellow_200"-->
+            <!--                android:textSize="20sp" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="0dp"
                 android:gravity="center"
-                android:fontFamily="@font/roboto_bold"
-                android:text="AIT Feed Cart Items"
-                android:textColor="@color/yellow_200"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                tools:ignore="UnknownId">
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Total Price:"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
 
-        <!--        <ImageView-->
-        <!--            android:layout_width="40dp"-->
-        <!--            android:layout_height="40dp"-->
-        <!--            android:layout_alignParentRight="true"-->
-        <!--            android:background="@drawable/grey_circular_border"-->
-        <!--            android:padding="@dimen/small"-->
-        <!--            android:src="@drawable/heart" />-->
+                <TextView
+                    android:id="@+id/tv_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
 
-        <LinearLayout
-            android:layout_below="@+id/linear_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UnknownId">
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Total Price:"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/tv_total_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/roboto_regular"
-                android:text="0"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
-
-        </LinearLayout>
+        </RelativeLayout>
 
 
     </RelativeLayout>
-
-
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_weight="1"
         android:background="#ffffff"
         android:cacheColorHint="#ffffff"

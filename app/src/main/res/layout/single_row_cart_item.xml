@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:gravity="left"
@@ -28,7 +28,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:src="@drawable/badge_background"
+                android:src="@drawable/demo_sack"
                 />
 
         </LinearLayout>
@@ -49,14 +49,24 @@
                 android:layout_marginTop="0dp"
                 android:text="fdf FFd fgfgfg"
                 android:textColor="@color/colorBlack"
+                android:fontFamily="@font/roboto_regular"
                 android:textSize="15sp" />
 
+            <TextView
+                android:id="@+id/tv_bag_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bag_size"
+                android:textColor="@color/green_800"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="11sp" />
             <TextView
                 android:id="@+id/tv_sub_item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Short Info"
-                android:textColor="@color/green_800"
+                android:text="Price"
+                android:textColor="@color/pink_800"
+                android:fontFamily="@font/roboto_regular"
                 android:textSize="13sp" />
 
             <LinearLayout
@@ -74,6 +84,7 @@
                     android:layout_marginRight="10dp"
                     android:text="Quantity"
                     android:textColor="@color/grey_80"
+                    android:fontFamily="@font/roboto_regular"
                     android:textSize="18sp" />
 
 
@@ -114,7 +125,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".5"
+            android:layout_weight=".7"
             android:gravity="top"
             android:orientation="vertical"
             android:visibility="visible">
@@ -129,16 +140,18 @@
 
                 <ImageView
                     android:id="@+id/iv_remove_item"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="4dp"
+                    android:padding="4dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="1dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="0dp"
+                    app:tint="@color/red_800"
                     app:srcCompat="@drawable/ic_delete" />
 
             </LinearLayout>
