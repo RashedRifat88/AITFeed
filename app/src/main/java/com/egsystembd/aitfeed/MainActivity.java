@@ -580,27 +580,86 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
 
 //        if (item.getItemId() == R.id.menu1) {
-//
 //            Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
-////            String menu_name = "1";
-////            intent.putExtra("menuName", menu_name);
 //            startActivity(intent);
-//
 //        }
-
-        if (item.getItemId() == R.id.menu2) {
-
+//
+//        if (item.getItemId() == R.id.menu2) {
 //            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);
 //            String menu_name = "1";
 //            intent.putExtra("menuName", menu_name);
 //            startActivity(intent);
+//        }
+//
+//
+//        if (item.getItemId() == R.id.menu3) {
+//            rateApp();
+//        }
 
+
+
+        if (item.getItemId() == R.id.menu1) {
+//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
+//            intent.putExtra("menuName", menu_name);
+//            startActivity(intent);
         }
+
+
+
+
+        if (item.getItemId() == R.id.menu2) {
+//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
+//            intent.putExtra("menuName", menu_name);
+//            startActivity(intent);
+        }
+
+
 
 
         if (item.getItemId() == R.id.menu3) {
-//            rateApp();
+//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
+//            intent.putExtra("menuName", menu_name);
+//            startActivity(intent);
         }
+
+
+
+
+        if (item.getItemId() == R.id.menu4) {
+//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
+//            intent.putExtra("menuName", menu_name);
+//            startActivity(intent);
+        }
+
+
+
+
+        if (item.getItemId() == R.id.menu5) {
+//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
+//            intent.putExtra("menuName", menu_name);
+//            startActivity(intent);
+        }
+
+
+
+
+        if (item.getItemId() == R.id.menu6) {
+//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
+//            intent.putExtra("menuName", menu_name);
+//            startActivity(intent);
+        }
+
+
+
+
+        if (item.getItemId() == R.id.menu7) {
+//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
+//            intent.putExtra("menuName", menu_name);
+//            startActivity(intent);
+        }
+
+
+
 
 
         if (item.getItemId() == R.id.nav_logout) {

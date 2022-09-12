@@ -4,19 +4,51 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <!--        <item-->
-        <!--            android:id="@+id/menu1"-->
-        <!--            android:icon="@drawable/ic_notification_drawer"-->
-        <!--            android:title="@string/menu_menu1" />-->
+
+        <item
+            android:id="@+id/menu1"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="@string/menu_menu1" />
+
+
         <item
             android:id="@+id/menu2"
-            android:icon="@drawable/ic_invite_others"
+            android:icon="@drawable/ic_tick"
             android:title="@string/menu_menu2" />
+
 
         <item
             android:id="@+id/menu3"
-            android:icon="@drawable/ic_rating"
+            android:icon="@drawable/ic_order_list"
             android:title="@string/menu_menu3" />
+
+
+        <item
+            android:id="@+id/menu4"
+            android:icon="@drawable/ic_product_list2"
+            android:title="@string/menu_menu4" />
+
+
+        <item
+            android:id="@+id/menu5"
+            android:icon="@drawable/ic_bank"
+            android:title="@string/menu_menu5" />
+
+
+        <item
+            android:id="@+id/menu6"
+            android:icon="@drawable/ic_ledger2"
+            android:title="@string/menu_menu6" />
+
+        <item
+            android:id="@+id/menu7"
+            android:icon="@drawable/ic_notice_board"
+            android:title="@string/menu_menu7" />
+
+<!--        <item-->
+<!--            android:id="@+id/menu8"-->
+<!--            android:icon="@drawable/ic_rating"-->
+<!--            android:title="@string/menu_menu8" />-->
 
         <!--        <item-->
         <!--            android:id="@+id/menuWallet"-->

@@ -18,10 +18,15 @@
     <string name="title_activity_login_lg">লগ ইন</string>
     <string name="title_activity_login_rg">Register</string>
 
-    <string name="menu_menu2">Invite Others</string>
-    <string name="menu_menu3">Ratings</string>
-    <string name="menu_menu1">Notification</string>
-    <string name="menu_logout">Logout</string>
+    <string name="menu_menu1">মূল্য পরিশোধ করুন</string>
+    <string name="menu_menu2">মূল্য পরিশোধ তালিকা</string>
+    <string name="menu_menu3">অর্ডার তালিকা</string>
+    <string name="menu_menu4">প্রোডাক্ট তালিকা</string>
+    <string name="menu_menu5">ব্যাংকের তালিকা</string>
+    <string name="menu_menu6">লেজার</string>
+    <string name="menu_menu7">নোটিশ বোর্ড</string>
+    <string name="menu_menu8">Ratings</string>
+    <string name="menu_logout">লগ আউট</string>
 
 <!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->
 <!--    <string name="navigation_drawer_close">Close navigation drawer</string>-->
