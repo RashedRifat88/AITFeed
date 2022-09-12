@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/drawable/dropdown_backgraound.xml" value="0.2415" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/drawable/gradiant_green_radial.xml" value="0.236" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/drawable/grey_circular_border.xml" value="0.2445" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/drawable/rounded_border_shape.xml" value="0.236" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/drawable/rounded_corner13.xml" value="0.2415" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/drawable/white_circular_border.xml" value="0.2445" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/font/poppins.xml" value="0.21822916666666667" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/layout/app_bar_main.xml" value="0.22" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/layout/content_main.xml" value="0.22" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/layout/prograss_bar_dialog.xml" value="0.3625" />
+        <entry key="..\:/Data/Rifat/Development/Android/AITFeed/app/src/main/res/layout/single_view_product_show.xml" value="0.15" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

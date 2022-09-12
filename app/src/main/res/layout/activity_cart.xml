@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".cart.CartActivity">
+
+    <!--Top Bar-->
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:minHeight="70dp"
+        android:background="@drawable/rounded_corner18"
+        tools:ignore="MissingConstraints">
+
+
+        <LinearLayout
+            android:id="@+id/linear_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/iv_menu_top"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="2dp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="4dp"
+                android:src="@drawable/ic_arrow_back_2"
+                 />
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:fontFamily="@font/roboto_bold"
+                android:text="AIT Feed Cart Items"
+                android:textColor="@color/yellow_200"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <!--        <ImageView-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_alignParentRight="true"-->
+        <!--            android:background="@drawable/grey_circular_border"-->
+        <!--            android:padding="@dimen/small"-->
+        <!--            android:src="@drawable/heart" />-->
+
+        <LinearLayout
+            android:layout_below="@+id/linear_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UnknownId">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Total Price:"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:cacheColorHint="#ffffff"
+        android:choiceMode="multipleChoice"
+        android:clickable="true" />
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ButtonRemoveFromCart"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@color/colorMicrosoft2"
+            android:text="Remove from Cart"
+            android:textAllCaps="false"
+            android:textColor="#DDDDDD"
+            android:textSize="17sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_checkout"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_border_shape"
+            android:text="Checkout"
+            android:textAllCaps="false"
+            android:textColor="#DDDDDD"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</LinearLayout>

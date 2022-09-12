@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#75FFFFFF">
+
+
+    <!--Top Bar-->
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:minHeight="75dp"
+        android:background="@drawable/rounded_corner18"
+        tools:ignore="MissingConstraints">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true">
+
+            <FrameLayout
+                android:id="@+id/frame_cart"
+                style="?attr/actionButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_shopping_cart_black_24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_cart_badge_count"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right|end|top"
+                    android:layout_marginEnd="-5dp"
+                    android:layout_marginRight="-5dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/badge_background"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:textColor="@android:color/white"
+                    android:text="0"
+                    android:textSize="10sp"/>
+
+            </FrameLayout>
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_count"-->
+<!--                android:layout_width="25dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                android:text="10"-->
+<!--                android:textSize="10sp"-->
+<!--                android:background="@drawable/rounded_textview"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:gravity="center" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_cart"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:clickable="true"-->
+<!--                android:foreground="?android:attr/selectableItemBackground"-->
+<!--                android:padding="3dp"-->
+<!--                android:src="@drawable/ic_shopping_cart_black_24dp" />-->
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/iv_menu_top"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/grey_circular_border"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="12dp"
+                android:src="@drawable/square_icon" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_bold"
+                android:text="AIT Feed"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginTop="@dimen/xsmall"-->
+            <!--                    android:text="eGSystemBd "-->
+            <!--                    android:textSize="15sp" />-->
+        </LinearLayout>
+
+        <!--        <ImageView-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_alignParentRight="true"-->
+        <!--            android:background="@drawable/grey_circular_border"-->
+        <!--            android:padding="@dimen/small"-->
+        <!--            android:src="@drawable/heart" />-->
+
+
+    </RelativeLayout>
+
+    <!--    <View-->
+    <!--        android:layout_below="@+id/toolbar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="1dp"-->
+    <!--        android:background="@color/colorPrimary" />-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+            android:id="@+id/linear_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <RelativeLayout
+                android:layout_weight="2"
+                android:id="@+id/spinRelative1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/dropdown_backgraound"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinnerCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:src="@drawable/drop2" />
+            </RelativeLayout>
+
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corner13"
+                android:hint="সার্চ করুন"
+                android:label="@string/app_name"
+                android:textAllCaps="false"
+                android:visibility="visible"
+                tools:ignore="UnknownId" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etSearch"
+            android:orientation="horizontal"
+            tools:ignore="InvalidId,NotSibling">
+
+            <TextView
+                android:id="@+id/tv_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:text="প্রোডাক্টের নাম"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#045292"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_product_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="40dp"
+                android:gravity="right"
+                android:text="সিলেক্ট      "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#045292"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_select"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="1dp"
+            android:paddingTop="2dp" />
+
+
+    </RelativeLayout>
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btn_next"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginLeft="-10dp"-->
+    <!--        android:layout_marginRight="-10dp"-->
+    <!--        android:layout_marginBottom="-10dp"-->
+    <!--        android:background="@color/colorPrimaryDark"-->
+    <!--        android:foreground="?android:attr/selectableItemBackground"-->
+    <!--        android:paddingBottom="10dp"-->
+    <!--        android:text="পরবর্তী"-->
+    <!--        android:textColor="@color/colorWhite"-->
+    <!--        android:textSize="20sp" />-->
+
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="top_doctor_title_array">
+        <item>ডাঃ একেএম জিয়াউল হক</item>
+        <item>ডাঃ তালহা ইবনে আলাউদ্দিন</item>
+        <item>ডাঃ রাশেদ রিফাত</item>
+        <item>ডাঃ তাকি ইলিয়াস</item>
+        <item>ডাঃ একেএম জিয়াউল হক</item>
+    </string-array>
+    <string-array name="com_google_android_gms_fonts_certs">rerere</string-array>
+
+</resources>
