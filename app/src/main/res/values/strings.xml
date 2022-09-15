@@ -28,8 +28,8 @@
     <string name="menu_menu8">Ratings</string>
     <string name="menu_logout">লগ আউট</string>
 
-<!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->
-<!--    <string name="navigation_drawer_close">Close navigation drawer</string>-->
+    <!--    <string name="navigation_drawer_open">Open navigation drawer</string>-->
+    <!--    <string name="navigation_drawer_close">Close navigation drawer</string>-->
 
     <!--Action Bar Title-->
     <string name="title_activity_product">Products</string>

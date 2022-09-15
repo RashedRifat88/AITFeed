@@ -93,7 +93,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                Intent intent = new Intent(CartActivity.this, LoginActivity.class);
-                Intent intent = new Intent(CartActivity.this, LoginActivity.class);
+                Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
                 startActivity(intent);
             }
         });

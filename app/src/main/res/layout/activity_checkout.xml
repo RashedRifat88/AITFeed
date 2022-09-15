@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cart.CheckoutActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Top Bar-->
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner18"
+            android:minHeight="70dp"
+            android:padding="16dp"
+            tools:ignore="MissingConstraints">
+
+
+            <RelativeLayout
+                android:id="@+id/linear_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/iv_menu_top"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="2dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_arrow_back_2"
+                    app:tint="@color/white" />
+
+
+                <!--            <TextView-->
+                <!--                android:id="@+id/tv_title"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="match_parent"-->
+                <!--                android:layout_marginTop="0dp"-->
+                <!--                android:gravity="center"-->
+                <!--                android:fontFamily="@font/roboto_bold"-->
+                <!--                android:text="AIT Feed Cart Items"-->
+                <!--                android:textColor="@color/yellow_200"-->
+                <!--                android:textSize="20sp" />-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="UnknownId">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Checkout"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Cart Details"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TableLayout
+                        android:id="@+id/table1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimaryDark"
+                        android:stretchColumns="0,1,2,3" />
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginBottom="-10dp"
+                    android:text="Shipping Address"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/ivUserNameDisplay"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_edit2"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/tvUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_toEndOf="@id/ivUserNameDisplay"
+                            android:layout_toRightOf="@id/ivUserNameDisplay"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="#212121"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvUserName"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/ivUserNameDisplay"
+                            android:layout_toRightOf="@id/ivUserNameDisplay"
+                            android:text="Name"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="#727272" />
+
+                    </RelativeLayout>
+
+                    <!--                <include layout="@layout/item_divider" />-->
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/ivUserPhone"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_edit2"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/tvUserPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_toEndOf="@id/ivUserPhone"
+                            android:layout_toRightOf="@id/ivUserPhone"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="#212121"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvUserPhone"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/ivUserPhone"
+                            android:layout_toRightOf="@id/ivUserPhone"
+                            android:text="Phone"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="#727272" />
+
+                        <!--<ToggleButton-->
+                        <!--android:id="@+id/chkUserPhone"-->
+                        <!--android:layout_width="24dp"-->
+                        <!--android:layout_height="24dp"-->
+                        <!--android:layout_alignParentEnd="true"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="@dimen/activity_horizontal_margin"-->
+                        <!--android:layout_marginStart="@dimen/activity_horizontal_margin"-->
+                        <!--android:background="@drawable/toggle_selector"-->
+                        <!--android:checked="true"-->
+                        <!--android:padding="6dp"-->
+                        <!--android:textOff=""-->
+                        <!--android:textOn="" />-->
+
+                    </RelativeLayout>
+
+
+                    <!--                <include layout="@layout/item_divider" />-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/ivEmailUser"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_edit2"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/tvEmailUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_toEndOf="@id/ivEmailUser"
+                            android:layout_toRightOf="@id/ivEmailUser"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="#212121"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvEmailUser"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/ivEmailUser"
+                            android:layout_toRightOf="@id/ivEmailUser"
+                            android:text="Email"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="#727272" />
+
+                        <!--<ToggleButton-->
+                        <!--android:id="@+id/chkEmailUser"-->
+                        <!--android:layout_width="24dp"-->
+                        <!--android:layout_height="24dp"-->
+                        <!--android:layout_alignParentEnd="true"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="@dimen/activity_horizontal_margin"-->
+                        <!--android:layout_marginStart="@dimen/activity_horizontal_margin"-->
+                        <!--android:background="@drawable/toggle_selector"-->
+                        <!--android:checked="true"-->
+                        <!--android:padding="6dp"-->
+                        <!--android:textOff=""-->
+                        <!--android:textOn="" />-->
+
+                    </RelativeLayout>
+
+
+                    <!--                <include layout="@layout/item_divider" />-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="@dimen/activity_horizontal_margin">
+
+                        <ImageView
+                            android:id="@+id/ivUserAddress"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_edit2"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/tvUserAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_toEndOf="@id/ivUserAddress"
+                            android:layout_toRightOf="@id/ivUserAddress"
+                            android:ellipsize="end"
+                            android:maxLines="5"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="#212121"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvUserAddress"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/ivUserAddress"
+                            android:layout_toRightOf="@id/ivUserAddress"
+                            android:text="Address"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="#727272" />
+
+                    </RelativeLayout>
+
+
+                    <!--                &lt;!&ndash;        <include layout="@layout/item_divider" />&ndash;&gt;-->
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/ivAddressWorkUser"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_edit2"
+                            android:visibility="invisible"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/tvAddressWorkUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_toEndOf="@id/ivAddressWorkUser"
+                            android:layout_toRightOf="@id/ivAddressWorkUser"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="221B Baker Street, England"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="#212121" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvAddressWorkUser"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/ivAddressWorkUser"
+                            android:layout_toRightOf="@id/ivAddressWorkUser"
+                            android:text="Work"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="#727272" />
+
+
+                    </RelativeLayout>
+
+                    <!--                &lt;!&ndash;<include layout="@layout/item_divider" />&ndash;&gt;-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/ivPassword"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_edit2"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/tvPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_toEndOf="@id/ivPassword"
+                            android:layout_toRightOf="@id/ivPassword"
+                            android:text="Password"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="#212121" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvPassword"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="8dp"
+                            android:layout_toEndOf="@id/ivPassword"
+                            android:layout_toRightOf="@id/ivPassword"
+                            android:text="Password"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="#727272" />
+
+
+                    </RelativeLayout>
+
+
+                    <!--                &lt;!&ndash;<include layout="@layout/item_divider" />&ndash;&gt;-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/ivRePassword"
+                            android:layout_width="24sp"
+                            android:layout_height="24sp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginRight="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_edit2"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <RelativeLayout
+                            android:id="@+id/spinRelative1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/ivRePassword"
+                            android:layout_toRightOf="@id/ivRePassword"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="0dp"
+                            android:background="@drawable/dropdown_backgraound"
+                            android:orientation="horizontal">
+
+                            <Spinner
+                                android:id="@+id/spinnerArea"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="1dp"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:gravity="center"
+                                android:spinnerMode="dropdown" />
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="35dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="right"
+                                android:src="@drawable/drop2" />
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                    <!--                &lt;!&ndash;<include layout="@layout/item_divider" />&ndash;&gt;-->
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="0dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:visibility="visible">
+
+                        <Button
+                            android:id="@+id/btn_order_now"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_horizontal_margin"
+                            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                            android:background="@drawable/rounded_corner4"
+                            android:text="Order Now"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

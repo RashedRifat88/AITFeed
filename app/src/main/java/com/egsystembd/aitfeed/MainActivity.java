@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         search();
         initNavigationMenu();
 
+//        updateNotificationsBadge(cartItemNumber);
+
         new FetchCountTask().execute();
         android.os.Handler customHandler = new android.os.Handler();
         customHandler.postDelayed(updateTimerThread, 0);
