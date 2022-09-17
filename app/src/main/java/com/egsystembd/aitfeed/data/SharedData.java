@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 public class SharedData {
 
     public static final String previous_index = "previous_index";
+    public static final String CART_ITEM_COUNT = "cart_item_count";
 
     public static final String DEVICE_ID = "device_id";
     public static final String ITEM_TOTAL_PRICE = "item_total_price";
@@ -52,6 +53,20 @@ public class SharedData {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPreferences.getInt(previous_index, 0);
     }
+
+    public static void saveCartItemCount(Context context, int value) {
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        editor.putInt(CART_ITEM_COUNT, value);
+        editor.commit();
+    }
+
+    public static int getCartItemCount(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPreferences.getInt(CART_ITEM_COUNT, 0);
+    }
+
+
+
   public static void saveDeviceId(Context context, String value) {
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putString(DEVICE_ID, value);

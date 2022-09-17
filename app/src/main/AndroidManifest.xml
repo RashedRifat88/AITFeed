@@ -17,13 +17,16 @@
         android:theme="@style/Theme.AITFeed"
         tools:targetApi="31">
         <activity
+            android:name=".ui.bank_list.BankListActivity"
+            android:exported="false" />
+        <activity
             android:name=".cart.CheckoutActivity"
             android:exported="false" />
         <activity
             android:name=".cart.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".credential.LoginActivity"
             android:exported="true" /> <!-- <activity -->
         <!-- android:name=".credential.ChangePasswordActivity" -->
         <!-- android:exported="false" /> -->
@@ -31,7 +34,7 @@
         <!-- android:name=".credential.ForgetPasswordActivity" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".credential.LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

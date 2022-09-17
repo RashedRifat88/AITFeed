@@ -39,11 +39,16 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.egsystembd.aitfeed.adapter.ProductShowAdapter;
 import com.egsystembd.aitfeed.cart.CartActivity;
+import com.egsystembd.aitfeed.cart.CartAdapter;
+import com.egsystembd.aitfeed.cart.CartModel;
 import com.egsystembd.aitfeed.credential.Credential;
 import com.egsystembd.aitfeed.credential.LoginActivity;
+import com.egsystembd.aitfeed.data.DatabaseHelper;
+import com.egsystembd.aitfeed.data.SharedData;
 import com.egsystembd.aitfeed.model.ProductCategory;
 import com.egsystembd.aitfeed.model.ProductList;
 import com.egsystembd.aitfeed.retrofit.RetrofitApiClient;
+import com.egsystembd.aitfeed.ui.bank_list.BankListActivity;
 import com.egsystembd.aitfeed.utils.NetUtils;
 import com.google.android.material.navigation.NavigationView;
 
@@ -92,11 +97,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationViewDrawer;
     Toolbar toolbar;
 
+    private List<CartModel> mCartList;
+    private DatabaseHelper db;
+    private static CartAdapter mCartAdapter;
+    int cartItemNumberN;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        cartItems();
 
         initStatusBar();
         initComponents();
@@ -109,6 +121,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         new FetchCountTask().execute();
         android.os.Handler customHandler = new android.os.Handler();
         customHandler.postDelayed(updateTimerThread, 0);
+    }
+
+    private void cartItems() {
+        db = new DatabaseHelper(this);
+        mCartList = db.getAllCartItems();
+        Log.d("tag444", "mCartList: " + mCartList);
+        cartItemNumber = mCartList.size();
+
+        updateNotificationsBadge(cartItemNumber);
     }
 
     private Runnable updateTimerThread = new Runnable() {
@@ -210,7 +231,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         iv_menu_top.setOnClickListener(view -> {
-            gotoCartActivity();
+
+            if (cartItemNumber < 1) {
+                new MaterialDialog.Builder(this)
+                        .title("Status")
+                        .content("You should select at least one product for going next step!")
+                        .positiveText("")
+                        .negativeText("Cancel")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+                            }
+                        })
+                        .show();
+            } else {
+                gotoCartActivity();
+            }
+
         });
 
     }
@@ -454,10 +492,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void gotoCartActivity() {
 
-        if (cartItemNumber < 0) {
+        if (cartItemNumber < 1) {
             new MaterialDialog.Builder(this)
                     .title("Status")
-                    .content("You should select at least one service for going next step!")
+                    .content("You should select at least one product for going next step!")
                     .positiveText("")
                     .negativeText("Cancel")
                     .onPositive(new MaterialDialog.SingleButtonCallback() {
@@ -513,6 +551,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     AsyncTask to fetch the notifications count
     */
     public class FetchCountTask extends AsyncTask<Void, Void, Integer> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
 
         @Override
         protected Integer doInBackground(Void... params) {
@@ -599,14 +642,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        }
 
 
-
         if (item.getItemId() == R.id.menu1) {
 //            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
 //            intent.putExtra("menuName", menu_name);
 //            startActivity(intent);
         }
-
-
 
 
         if (item.getItemId() == R.id.menu2) {
@@ -616,15 +656,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-
-
         if (item.getItemId() == R.id.menu3) {
 //            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
 //            intent.putExtra("menuName", menu_name);
 //            startActivity(intent);
         }
-
-
 
 
         if (item.getItemId() == R.id.menu4) {
@@ -634,15 +670,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-
-
         if (item.getItemId() == R.id.menu5) {
-//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
-//            intent.putExtra("menuName", menu_name);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, BankListActivity.class);
+            ;
+            intent.putExtra("menuName", "BankListActivity");
+            startActivity(intent);
         }
-
-
 
 
         if (item.getItemId() == R.id.menu6) {
@@ -652,16 +685,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-
-
         if (item.getItemId() == R.id.menu7) {
 //            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
 //            intent.putExtra("menuName", menu_name);
 //            startActivity(intent);
         }
-
-
-
 
 
         if (item.getItemId() == R.id.nav_logout) {

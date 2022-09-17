@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.egsystembd.aitfeed.MainActivity;
 import com.egsystembd.aitfeed.R;
 import com.egsystembd.aitfeed.data.DatabaseHelper;
 
@@ -281,6 +282,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
                     CartActivity.setTotalPrice(sumOfPrice2);
 
                     callEdittext();
+
                 }
 
             }
@@ -292,6 +294,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
             public void onClick(View view) {
 
                 deleteItemFromCart2(String.valueOf(item_row_id));
+
+                int cartItemNumber = db.getCartItemsCount();
+                MainActivity.getCartItemsNumber(cartItemNumber);
 
 //                ShoppingCartActivity.refreshAdapter();
 //                adapter.notifyDataSetChanged();
