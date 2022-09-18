@@ -694,8 +694,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (item.getItemId() == R.id.nav_logout) {
 
-//            SharedData.saveTOKEN(MainActivity.this, "");
-//            finish();
+            Credential.saveToken(MainActivity.this, "");
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.putExtra("from_where", "MainActivity");
+            finish();
+
+
         }
 
         return false;

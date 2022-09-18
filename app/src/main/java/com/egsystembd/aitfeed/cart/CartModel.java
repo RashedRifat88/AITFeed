@@ -15,6 +15,7 @@ public class CartModel {
     public static final String SUB_CATEGORY_TOTAL_PRICE = "sub_category_total_price";
     public static final String BAG_SIZE = "bag_size";
     public static final String QUANTITY = "quantity";
+    public static final String DIRECT_RECOVERY = "direct_recovery";
     public static final String IMG_LINK = "img_link";
 
     private int id;
@@ -25,6 +26,7 @@ public class CartModel {
     private String sub_category_total_price;
     private String bag_size;
     private String quantity;
+    private String direct_recovery;
     private String img_link;
 
     
@@ -38,6 +40,7 @@ public class CartModel {
                     + SUB_CATEGORY_TOTAL_PRICE + " TEXT,"
                     + BAG_SIZE + " TEXT,"
                     + QUANTITY + " TEXT,"
+                    + DIRECT_RECOVERY + " TEXT,"
                     + IMG_LINK + " TEXT "
                     + ");";
 
@@ -51,7 +54,8 @@ public class CartModel {
     }
 
 
-    public CartModel(int id, String category_name, String sub_category_name, String sub_category_id, String sub_category_price, String sub_category_total_price, String bag_size, String quantity, String img_link) {
+    public CartModel(int id, String category_name, String sub_category_name, String sub_category_id, String sub_category_price, String sub_category_total_price,
+                     String bag_size, String quantity, String direct_recovery, String img_link) {
         this.id = id;
         this.category_name = category_name;
         this.sub_category_name = sub_category_name;
@@ -60,6 +64,7 @@ public class CartModel {
         this.sub_category_total_price = sub_category_total_price;
         this.bag_size = bag_size;
         this.quantity = quantity;
+        this.direct_recovery = direct_recovery;
         this.img_link = img_link;
     }
 
@@ -127,6 +132,14 @@ public class CartModel {
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
+    }
+
+    public String getDirect_recovery() {
+        return direct_recovery;
+    }
+
+    public void setDirect_recovery(String direct_recovery) {
+        this.direct_recovery = direct_recovery;
     }
 
     public String getBag_size() {

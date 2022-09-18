@@ -221,9 +221,10 @@ public class ProductShowAdapter extends RecyclerView.Adapter<ProductShowAdapter.
             String imgLink = "";
             String sub_category_price = productList.getProductPrice();
             String bag_size = productList.getProduct_pack_size();
+            String directRecovery = productList.getDirect_recovery().toString();
             String quantity = "1";
 
-            addItemToCart(categoryName, subCategoryName, subCategoryId, imgLink, sub_category_price, bag_size, quantity);
+            addItemToCart(categoryName, subCategoryName, subCategoryId, imgLink, sub_category_price, bag_size, quantity, directRecovery);
 
             int cartItemNumber = db.getCartItemsCount();
             MainActivity.getCartItemsNumber(cartItemNumber);
@@ -235,9 +236,10 @@ public class ProductShowAdapter extends RecyclerView.Adapter<ProductShowAdapter.
 
     }
 
-    private void addItemToCart(String category_name, String sub_category_name, String sub_category_id, String img_link, String sub_category_price, String bag_size, String quantity) {
+    private void addItemToCart(String category_name, String sub_category_name, String sub_category_id, String img_link, String sub_category_price,
+                               String bag_size, String quantity, String directRecovery) {
 
-        long id = db.insertCartModel(category_name, sub_category_name, sub_category_id, img_link, sub_category_price, bag_size, quantity);
+        long id = db.insertCartModel(category_name, sub_category_name, sub_category_id, img_link, sub_category_price, bag_size, quantity, directRecovery);
 
         CartModel n = db.getCartModel(id);
 

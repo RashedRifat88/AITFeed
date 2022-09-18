@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -23,22 +22,17 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.egsystembd.aitfeed.R;
 import com.egsystembd.aitfeed.data.DatabaseHelper;
 import com.egsystembd.aitfeed.data.SharedData;
-import com.egsystembd.aitfeed.retrofit.RetrofitApiClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 public class CheckoutActivity extends AppCompatActivity {
 
@@ -51,9 +45,12 @@ public class CheckoutActivity extends AppCompatActivity {
     ArrayList<String> productNames = new ArrayList<>();
     ArrayList<String> prices = new ArrayList<>();
     ArrayList<String> quantities = new ArrayList<>();
+    ArrayList<String> bagSizes = new ArrayList<>();
     ArrayList<String> totalPrices = new ArrayList<>();
+    ArrayList<String> productDirectRecoveries = new ArrayList<>();
     ArrayList<String> productVolumes = new ArrayList<>();
     private static String subTotalPrice;
+    private static double totalPayableNetPrice;
     private Double sumOfPrice = 0.0;
 
     TextView tvUserName, tvUserPhone, tvUserAddress;
@@ -80,6 +77,7 @@ public class CheckoutActivity extends AppCompatActivity {
         initStatusBar();
         initview();
         loadArrayData();
+        setTotalPayableNetPrice();
         setTextData();
         addTable1();
 
@@ -191,6 +189,8 @@ public class CheckoutActivity extends AppCompatActivity {
             productNames.add(m.getCategory_name());
             prices.add(m.getSub_category_price());
             quantities.add(m.getQuantity());
+            bagSizes.add(m.getBag_size());
+            productDirectRecoveries.add(m.getDirect_recovery());
 
             totalPrices.add(String.valueOf(Double.parseDouble(m.getSub_category_price()) * Double.parseDouble(m.getQuantity())));
 
@@ -209,6 +209,7 @@ public class CheckoutActivity extends AppCompatActivity {
         addHeaders();
         addData();
         addFooters();
+        addFooters2();
     }
 
 
@@ -217,6 +218,21 @@ public class CheckoutActivity extends AppCompatActivity {
         tv.setId(id);
         tv.setText(title.toUpperCase());
         tv.setTextSize(12);
+        tv.setTextColor(color);
+        tv.setPadding(10, 25, 10, 25);
+        tv.setTypeface(Typeface.DEFAULT, typeface);
+        tv.setBackgroundColor(bgColor);
+        tv.setLayoutParams(getLayoutParams());
+        tv.setGravity(Gravity.CENTER);
+//        tv.setOnClickListener(CheckoutActivity.this);
+        return tv;
+    }
+
+    private TextView getTextView2(int id, String title, int color, int typeface, int bgColor) {
+        TextView tv = new TextView(this);
+        tv.setId(id);
+        tv.setText(title.toUpperCase());
+        tv.setTextSize(14);
         tv.setTextColor(color);
         tv.setPadding(10, 25, 10, 25);
         tv.setTypeface(Typeface.DEFAULT, typeface);
@@ -244,7 +260,7 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     /**
-     * This function add the headers to the table
+     * add the headers to the table
      **/
     public void addHeaders() {
         TableLayout tl = findViewById(R.id.table1);
@@ -257,9 +273,7 @@ public class CheckoutActivity extends AppCompatActivity {
         tl.addView(tr, getTblLayoutParams());
     }
 
-    /**
-     * This function add the headers to the table
-     **/
+
     public void addFooters() {
         TableLayout tl = findViewById(R.id.table1);
         TableRow tr = new TableRow(this);
@@ -268,6 +282,17 @@ public class CheckoutActivity extends AppCompatActivity {
         tr.addView(getTextView(0, "", Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.light_green_200)));
         tr.addView(getTextView(0, "", Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.light_green_200)));
         tr.addView(getTextView(0, subTotalPrice, Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.light_green_200)));
+        tl.addView(tr, getTblLayoutParams());
+    }
+
+    public void addFooters2() {
+        TableLayout tl = findViewById(R.id.table1);
+        TableRow tr = new TableRow(this);
+        tr.setLayoutParams(getLayoutParams());
+        tr.addView(getTextView(0, "Total Payable Price", Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.light_green_200)));
+        tr.addView(getTextView(0, "", Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.light_green_200)));
+        tr.addView(getTextView(0, "", Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.light_green_200)));
+        tr.addView(getTextView2(0, String.valueOf(totalPayableNetPrice), Color.RED, Typeface.BOLD, ContextCompat.getColor(this, R.color.light_green_200)));
         tl.addView(tr, getTblLayoutParams());
     }
 
@@ -339,6 +364,29 @@ public class CheckoutActivity extends AppCompatActivity {
         finalobject.put("checkoutProductsInfo", jsonArray);
 //        finalobject.put("shippingInfo", obj2);
         return finalobject;
+    }
+
+
+    //payable price
+    private void setTotalPayableNetPrice() {
+
+        totalPayableNetPrice = 0.0;
+
+        for (int i = 0; i < prices.size(); i++) {
+
+            String price = prices.get(i);
+            String priceWithOutComma = price.replace(",", "");
+
+            totalPayableNetPrice = (Double.parseDouble(priceWithOutComma) * Double.parseDouble(bagSizes.get(i))) +
+                    (totalPayableNetPrice + Double.parseDouble(bagSizes.get(i)) *
+                            Double.parseDouble(productDirectRecoveries.get(i)));
+
+            totalPayableNetPrice = Double.parseDouble(new DecimalFormat("##.##").format(totalPayableNetPrice));
+            Log.d("tag3", "productDirectRecoveries.get(i): " + productDirectRecoveries.get(i));
+
+        }
+
+//        tv_payable_total_price.setText(String.valueOf("\u09F3 " + totalPayableNetPrice));
     }
 
 
@@ -521,7 +569,6 @@ public class CheckoutActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

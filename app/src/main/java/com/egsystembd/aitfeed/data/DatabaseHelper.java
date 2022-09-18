@@ -84,7 +84,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public long insertCartModel(String category_name, String sub_category_name, String sub_category_id, String img_link, String sub_category_price, String bag_size, String quantity) {
+    public long insertCartModel(String category_name, String sub_category_name, String sub_category_id, String img_link, String sub_category_price,
+                                String bag_size, String quantity, String direct_recovery) {
         // get writable database as we want to write data
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -97,6 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(CartModel.SUB_CATEGORY_TOTAL_PRICE, sub_category_price);
         values.put(CartModel.BAG_SIZE, bag_size);
         values.put(CartModel.QUANTITY, quantity);
+        values.put(CartModel.DIRECT_RECOVERY, direct_recovery);
         // insert row
         long id = db.insert(TABLE_NAME, null, values);
         // close db connection
@@ -127,7 +129,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(TABLE_NAME,
                 new String[]{CartModel.COLUMN_ID, CartModel.CATEGORY_NAME, CartModel.SUB_CATEGORY_NAME,
-                        CartModel.SUB_CATEGORY_ID, CartModel.SUB_CATEGORY_PRICE, CartModel.SUB_CATEGORY_TOTAL_PRICE, CartModel.BAG_SIZE, CartModel.QUANTITY, CartModel.IMG_LINK},
+                        CartModel.SUB_CATEGORY_ID, CartModel.SUB_CATEGORY_PRICE, CartModel.SUB_CATEGORY_TOTAL_PRICE,
+                        CartModel.BAG_SIZE, CartModel.QUANTITY, CartModel.DIRECT_RECOVERY, CartModel.IMG_LINK},
                 CartModel.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
 
@@ -144,6 +147,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cursor.getString(cursor.getColumnIndex(CartModel.SUB_CATEGORY_TOTAL_PRICE)),
                 cursor.getString(cursor.getColumnIndex(CartModel.BAG_SIZE)),
                 cursor.getString(cursor.getColumnIndex(CartModel.QUANTITY)),
+                cursor.getString(cursor.getColumnIndex(CartModel.DIRECT_RECOVERY)),
                 cursor.getString(cursor.getColumnIndex(CartModel.IMG_LINK)));
 
         // close the db connection
@@ -205,6 +209,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cartModel.setSub_category_total_price(cursor.getString(cursor.getColumnIndex(CartModel.SUB_CATEGORY_TOTAL_PRICE)));
                 cartModel.setBag_size(cursor.getString(cursor.getColumnIndex(CartModel.BAG_SIZE)));
                 cartModel.setQuantity(cursor.getString(cursor.getColumnIndex(CartModel.QUANTITY)));
+                cartModel.setQuantity(cursor.getString(cursor.getColumnIndex(CartModel.DIRECT_RECOVERY)));
                 cartModel.setImg_link(cursor.getString(cursor.getColumnIndex(CartModel.IMG_LINK)));
 
 
@@ -262,6 +267,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(CartModel.SUB_CATEGORY_TOTAL_PRICE, cartModel.getSub_category_total_price());
         values.put(CartModel.BAG_SIZE, cartModel.getBag_size());
         values.put(CartModel.QUANTITY, cartModel.getQuantity());
+        values.put(CartModel.DIRECT_RECOVERY, cartModel.getDirect_recovery());
         values.put(CartModel.IMG_LINK, cartModel.getImg_link());
 
 
@@ -282,6 +288,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(CartModel.SUB_CATEGORY_TOTAL_PRICE, sub_category_total_price);
         values.put(CartModel.BAG_SIZE, bag_size);
         values.put(CartModel.QUANTITY, quantity);
+        values.put(CartModel.DIRECT_RECOVERY, cartModel.getDirect_recovery());
         values.put(CartModel.IMG_LINK, cartModel.getImg_link());
 
 

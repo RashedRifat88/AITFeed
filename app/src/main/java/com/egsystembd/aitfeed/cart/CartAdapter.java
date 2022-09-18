@@ -195,6 +195,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
 //        tv_sub_item_extra.setText(curProduct.getCategory_name());
 //        int item_row_id= curProduct.getId();
         String sub_item_id = curProduct.getSub_category_id();
+//        String productDirectRecovery = curProduct.get;
         int item_row_id = curProduct.getId();
         Log.d("tag55555", "item_row_id: " + item_row_id);
         Log.d("tag55555", "curProduct.getSub_category_price(): " + curProduct.getSub_category_price());
@@ -318,21 +319,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
     }
 
 
-    /**
-     * Inserting new note in db
-     * and refreshing the list
-     */
-    private void addItemToCart(String category_name, String sub_category_name, String sub_category_id, String img_link, String sub_category_price, String bag_size, String quantity) {
-        long id = db.insertCartModel(category_name, sub_category_name, sub_category_id, img_link, sub_category_price, bag_size, quantity);
-
-        CartModel n = db.getCartModel(id);
-
-        if (n != null) {
-            // adding new note to array list at 0 position
-//            notesList.add(0, n);
-
-        }
-    }
+//    private void addItemToCart(String category_name, String sub_category_name, String sub_category_id, String img_link, String sub_category_price, String bag_size, String quantity) {
+//        long id = db.insertCartModel(category_name, sub_category_name, sub_category_id, img_link, sub_category_price, bag_size, quantity, directRecovery);
+//
+//        CartModel n = db.getCartModel(id);
+//
+//        if (n != null) {
+//            // adding new note to array list at 0 position
+////            notesList.add(0, n);
+//
+//        }
+//    }
 
 
     private void updateItemInCart(int id, String bag_size, String quantity, String sub_category_total_price) {

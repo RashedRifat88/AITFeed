@@ -115,6 +115,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -525,33 +526,183 @@
                     <!--                &lt;!&ndash;<include layout="@layout/item_divider" />&ndash;&gt;-->
 
 
-
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="0dp"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
-                        android:visibility="visible">
-
-                        <Button
-                            android:id="@+id/btn_order_now"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/activity_horizontal_margin"
-                            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                            android:background="@drawable/rounded_corner4"
-                            android:text="Order Now"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="normal" />
-
-                    </LinearLayout>
                 </LinearLayout>
 
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/linaerDriver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/iv_truck_driver_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:visibility="gone"
+                        tools:ignore="VectorDrawableCompat" />
+
+                    <TextView
+                        android:id="@+id/tv_truck_driver_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_toEndOf="@id/iv_truck_driver_name"
+                        android:layout_toRightOf="@id/iv_truck_driver_name"
+                        android:text="২. ট্রাক ড্রাইভারের নাম (ঐচ্ছিক)"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#045292"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_truck_driver_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/tv_truck_driver_name"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/rounded_corner13"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#212121" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/iv_truck_driver_mobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:visibility="gone"
+                        tools:ignore="VectorDrawableCompat" />
+
+                    <TextView
+
+                        android:id="@+id/tv_truck_driver_mobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_toEndOf="@id/iv_truck_driver_mobile"
+                        android:layout_toRightOf="@id/iv_truck_driver_mobile"
+                        android:text="৩. ট্রাক ড্রাইভারের মোবাইল নম্বর (ঐচ্ছিক)"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#045292"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_truck_driver_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/tv_truck_driver_mobile"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/rounded_corner13"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#212121" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/iv_truck_driver_reg_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:visibility="gone"
+                        tools:ignore="VectorDrawableCompat" />
+
+                    <TextView
+
+                        android:id="@+id/tv_truck_driver_reg_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_toEndOf="@id/iv_truck_driver_reg_no"
+                        android:layout_toRightOf="@id/iv_truck_driver_reg_no"
+                        android:text="৪. ট্রাক রেজিস্ট্রেশন নম্বর (ঐচ্ছিক)"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#045292"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_truck_driver_reg_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/tv_truck_driver_reg_no"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/rounded_corner13"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#212121" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/btn_order_now"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/rounded_corner4"
+                    android:text="Order Now"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
 
             </LinearLayout>
 
