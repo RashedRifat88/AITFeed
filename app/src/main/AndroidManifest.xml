@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AITFeed"
         tools:targetApi="31">
         <activity
+            android:name=".LedgerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.bank_list.BankListActivity"
             android:exported="false" />
         <activity
