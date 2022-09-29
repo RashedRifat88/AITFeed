@@ -76,13 +76,13 @@
                 android:id="@+id/userNameInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="55dp"
                 android:layout_below="@+id/iv_logo"
                 android:layout_gravity="left"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/rounded_border_shape"
                 android:fontFamily="@font/solaiman_lipi"
                 android:hint="মোবাইল নম্বর"
+                android:minHeight="55dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:textColor="@color/colorPrimaryDark"
@@ -105,7 +105,6 @@
             <!--android:textColor="@color/colorPrimaryDark"-->
             <!--android:textColorHint="@color/colorPrimaryDark" />-->
 
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/taxt_layout1"
                 android:layout_width="match_parent"
@@ -114,8 +113,14 @@
                 android:layout_gravity="left"
                 android:layout_marginTop="18dp"
 
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/colorPrimaryDark"
+
+                app:boxBackgroundColor="@android:color/transparent"
+                android:background="@android:color/transparent"
 
                 android:textColorHint="@color/colorPrimaryDark"
                 app:passwordToggleEnabled="true">
@@ -131,20 +136,51 @@
                     android:inputType="textPassword"
                     android:paddingLeft="16dp"
                     android:paddingRight="4dp"
+                    android:layout_marginBottom="12dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textColorHint="@color/colorPrimaryDark" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/taxt_layout1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/userNameInput"-->
+<!--                android:layout_gravity="left"-->
+<!--                android:layout_marginTop="18dp"-->
+
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:textColor="@color/colorPrimaryDark"-->
+
+<!--                android:textColorHint="@color/colorPrimaryDark"-->
+<!--                app:passwordToggleEnabled="true">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/passwordInput"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/userNameInput"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@drawable/rounded_border_shape"-->
+<!--                    android:hint="পাসওয়ার্ড"-->
+<!--                    android:inputType="textPassword"-->
+<!--                    android:paddingLeft="16dp"-->
+<!--                    android:paddingRight="4dp"-->
+<!--                    android:textColor="@color/colorPrimaryDark"-->
+<!--                    android:textColorHint="@color/colorPrimaryDark" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
             <Button
                 android:id="@+id/button_verify"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="54dp"
                 android:layout_below="@+id/taxt_layout1"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/button_rounded_angle"
                 android:foreground="?android:attr/selectableItemBackground"
+                android:minHeight="54dp"
                 android:text="লগইন"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp" />

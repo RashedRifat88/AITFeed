@@ -209,7 +209,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cartModel.setSub_category_total_price(cursor.getString(cursor.getColumnIndex(CartModel.SUB_CATEGORY_TOTAL_PRICE)));
                 cartModel.setBag_size(cursor.getString(cursor.getColumnIndex(CartModel.BAG_SIZE)));
                 cartModel.setQuantity(cursor.getString(cursor.getColumnIndex(CartModel.QUANTITY)));
-                cartModel.setQuantity(cursor.getString(cursor.getColumnIndex(CartModel.DIRECT_RECOVERY)));
+                cartModel.setDirect_recovery(cursor.getString(cursor.getColumnIndex(CartModel.DIRECT_RECOVERY)));
                 cartModel.setImg_link(cursor.getString(cursor.getColumnIndex(CartModel.IMG_LINK)));
 
 

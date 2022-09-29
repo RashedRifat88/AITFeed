@@ -49,6 +49,8 @@ import com.egsystembd.aitfeed.model.ProductCategory;
 import com.egsystembd.aitfeed.model.ProductList;
 import com.egsystembd.aitfeed.retrofit.RetrofitApiClient;
 import com.egsystembd.aitfeed.ui.bank_list.BankListActivity;
+import com.egsystembd.aitfeed.ui.payment.PaymentActivity;
+import com.egsystembd.aitfeed.ui.payment_list.PaymentListActivity;
 import com.egsystembd.aitfeed.utils.NetUtils;
 import com.google.android.material.navigation.NavigationView;
 
@@ -643,16 +645,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if (item.getItemId() == R.id.menu1) {
-//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
-//            intent.putExtra("menuName", menu_name);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, PaymentActivity.class);;
+            intent.putExtra("menuName", "PaymentActivity");
+            startActivity(intent);
         }
 
 
         if (item.getItemId() == R.id.menu2) {
-//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
-//            intent.putExtra("menuName", menu_name);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, PaymentListActivity.class);;
+            intent.putExtra("menuName", "PaymentListActivity");
+            startActivity(intent);
         }
 
 
@@ -672,7 +674,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (item.getItemId() == R.id.menu5) {
             Intent intent = new Intent(MainActivity.this, BankListActivity.class);
-            ;
             intent.putExtra("menuName", "BankListActivity");
             startActivity(intent);
         }

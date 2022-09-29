@@ -217,7 +217,7 @@ public class ProductShowAdapter extends RecyclerView.Adapter<ProductShowAdapter.
 
             String categoryName = productList.getProductName();
             String subCategoryName = "";
-            String subCategoryId = "";
+            String subCategoryId = productList.getProductId().toString();
             String imgLink = "";
             String sub_category_price = productList.getProductPrice();
             String bag_size = productList.getProduct_pack_size();

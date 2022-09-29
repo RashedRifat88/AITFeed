@@ -52,32 +52,73 @@
             <!--                android:textColor="@color/yellow_200"-->
             <!--                android:textSize="20sp" />-->
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="0dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                tools:ignore="UnknownId">
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Total Price:"
-                    android:textColor="@color/white"
-                    android:textSize="22sp" />
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="34dp"
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    tools:ignore="UnknownId">
 
-                <TextView
-                    android:id="@+id/tv_total_price"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Total Price:     "
+                        android:textColor="@color/white"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_total_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="0"
-                    android:textColor="@color/white"
-                    android:textSize="22sp" />
+                    android:layout_marginLeft="50dp"
+                    android:gravity="left"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UnknownId">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Total Payable Price:   "
+                        android:textColor="@color/white"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_total_payable_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -126,14 +167,14 @@
         <Button
             android:id="@+id/btn_checkout"
             android:layout_width="0dp"
-            android:layout_height="44dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="0dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_border_shape"
             android:text="Checkout"
             android:textAllCaps="false"
-            android:textColor="#DDDDDD"
+            android:textColor="#FFFFFF"
             android:textSize="17sp" />
     </LinearLayout>
 

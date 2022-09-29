@@ -36,12 +36,21 @@ public class CartActivity extends AppCompatActivity {
     int cartItemNumber;
     private static RecyclerView recyclerView;
     static double totalPrice = 0;
-    static TextView tv_total_price;
+    static TextView tv_total_price, tv_total_payable_price;
     Button btn_checkout;
 
+    ArrayList<String> productIds = new ArrayList<>();
     ArrayList<String> productNames = new ArrayList<>();
     ArrayList<String> prices = new ArrayList<>();
     ArrayList<String> quantities = new ArrayList<>();
+    ArrayList<String> bagSizes = new ArrayList<>();
+    ArrayList<String> totalPrices = new ArrayList<>();
+    ArrayList<String> productDirectRecoveries = new ArrayList<>();
+    ArrayList<String> productVolumes = new ArrayList<>();
+    private static String subTotalPrice;
+    private static double totalPayableNetPrice;
+    private Double sumOfPrice = 0.0;
+    private static double dTotalPrice = 0.0;
 
 
     @Override
@@ -70,6 +79,9 @@ public class CartActivity extends AppCompatActivity {
         loadTotalPrice();
         checkout();
 
+//        loadArrayData();
+//        setTotalPayableNetPrice();
+
     }
 
     private void initStatusBar() {
@@ -87,6 +99,52 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
+
+
+
+    public void loadArrayData() {
+        for (CartModel m : mCartList) {
+            productIds.add(m.getSub_category_id());
+            productNames.add(m.getCategory_name());
+            prices.add(m.getSub_category_price());
+            quantities.add(m.getQuantity());
+            bagSizes.add(m.getBag_size());
+            productDirectRecoveries.add(m.getDirect_recovery());
+
+            totalPrices.add(String.valueOf(Double.parseDouble(m.getSub_category_price()) * Double.parseDouble(m.getQuantity())));
+
+            sumOfPrice = sumOfPrice + Double.parseDouble(m.getSub_category_price()) * Double.parseDouble(m.getQuantity());
+        }
+
+        dTotalPrice = sumOfPrice;
+        subTotalPrice = "\u09F3 " + String.valueOf(dTotalPrice);
+    }
+
+
+    //payable price
+    public void setTotalPayableNetPrice() {
+
+        totalPayableNetPrice = 0.0;
+
+        for (int i = 0; i < prices.size(); i++) {
+
+            String price = prices.get(i);
+            String priceWithOutComma = price.replace(",", "");
+
+            totalPayableNetPrice = (Double.parseDouble(priceWithOutComma) * Double.parseDouble(bagSizes.get(i))) +
+                    (totalPayableNetPrice + Double.parseDouble(bagSizes.get(i)) *
+                            Double.parseDouble(productDirectRecoveries.get(i)));
+
+            totalPayableNetPrice = Double.parseDouble(new DecimalFormat("##.##").format(totalPayableNetPrice));
+            Log.d("tag3", "productDirectRecoveries.get(i): " + productDirectRecoveries.get(i));
+
+        }
+
+        tv_total_payable_price.setText(String.valueOf("\u09F3 " + totalPayableNetPrice));
+    }
+
+
+
     private void checkout() {
         btn_checkout = findViewById(R.id.btn_checkout);
         btn_checkout.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +159,7 @@ public class CartActivity extends AppCompatActivity {
 
     private void loadTotalPrice() {
         tv_total_price = findViewById(R.id.tv_total_price);
+        tv_total_payable_price = findViewById(R.id.tv_total_payable_price);
 //        totalPrice = CartAdapter.sumOfPrice;
 //        tv_total_price.setText("TK "+totalPrice);
     }
@@ -110,7 +169,10 @@ public class CartActivity extends AppCompatActivity {
 
         DecimalFormat df = new DecimalFormat("####0.00");
 
-        tv_total_price.setText("TK "+ df.format(total_price));
+        tv_total_price.setText("\u09F3 "+ df.format(total_price));
+
+//        loadArrayData();
+//        setTotalPayableNetPrice();
     }
 
     private void loadRecyclerView() {

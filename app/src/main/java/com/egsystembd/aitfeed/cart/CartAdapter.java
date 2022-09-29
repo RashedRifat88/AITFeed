@@ -112,7 +112,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
         mCartList = db.getAllCartItems();
 
         for (CartModel m : mCartList) {
-            sumOfPrice1 = sumOfPrice1 + Double.parseDouble(m.getSub_category_price()) * Double.parseDouble(m.getQuantity());
+            sumOfPrice1 = sumOfPrice1 + Double.parseDouble(m.getSub_category_price()) * Double.parseDouble(m.getQuantity()) * Double.parseDouble(m.getBag_size());
         }
 
         dTotalPrice1 = sumOfPrice1;
@@ -157,6 +157,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
         TextView tv_sub_item_name = holder.tv_sub_item_name;
         TextView tv_bag_size = holder.tv_bag_size;
         TextView tv_sub_item_price = holder.tv_sub_item_price;
+        TextView tv_sub_item_unit_price = holder.tv_sub_item_unit_price;
         TextView tv_quantity = holder.tv_quantity;
         TextView tv_remove_item = holder.tv_remove_item;
         TextView tv_sub_item_extra = holder.tv_sub_item_extra;
@@ -182,16 +183,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
 //        String subCategoryId = curProduct.getId().toString();
 //        String imgLink = curProduct.getPhoto();
         tv_sub_item_name.setText(curProduct.getCategory_name());
-        tv_bag_size.setText("Bag Size: " + curProduct.getBag_size().toString());
+        Double bagSize = Double.parseDouble(curProduct.getBag_size());
+        tv_bag_size.setText("Bag Size: " + curProduct.getBag_size().toString()  + " kg");
         tv_quantity.setText(curProduct.getQuantity());
 
         double quantity_item_d = Double.parseDouble(curProduct.getQuantity());
         double price_item_d = Double.parseDouble(curProduct.getSub_category_price());
         double price_item_total_d = quantity_item_d * price_item_d;
+        double price_item_total_d_full_bag = quantity_item_d * price_item_d * bagSize;
 
         DecimalFormat df = new DecimalFormat("####0.00");
 
-        tv_sub_item_price.setText("Price: TK " + df.format(price_item_total_d));
+//        tv_sub_item_price.setText("Price: " +"\u09F3 "+ df.format(price_item_total_d));
+        tv_sub_item_price.setText("Price: " +"\u09F3 "+ df.format(price_item_total_d_full_bag));
+        tv_sub_item_unit_price.setText("Unit Price: " +"\u09F3 "+ df.format(price_item_d));
 //        tv_sub_item_extra.setText(curProduct.getCategory_name());
 //        int item_row_id= curProduct.getId();
         String sub_item_id = curProduct.getSub_category_id();
@@ -220,6 +225,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
 
         double cost = 0;
         cost = Double.parseDouble(price);
+//        double[] finalCost = {Double.parseDouble(item_total_price) * bagSize};
         double[] finalCost = {Double.parseDouble(item_total_price)};
 
         double[] bag_size = {Double.parseDouble(curProduct.getBag_size())};
@@ -233,7 +239,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
                 finalCost[0] = finalCost[0] + cost1;
                 quantity[0]++;
 
-                tv_sub_item_price.setText("Price: TK " + df.format(finalCost[0]));
+                tv_sub_item_price.setText("Price: " +"\u09F3 " + df.format(finalCost[0] * bagSize));
                 tv_quantity.setText(String.valueOf(quantity[0]));
 
 
@@ -246,12 +252,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
 
                 Log.d("tag55555", "dTotalPrice2 prev: " + dTotalPrice2);
                 for (CartModel m : mCartList) {
-                    sumOfPrice2 = sumOfPrice2 + Double.parseDouble(m.getSub_category_total_price());
+                    sumOfPrice2 = sumOfPrice2 + (Double.parseDouble(m.getSub_category_total_price()) * bagSize);
+//                    sumOfPrice2 = sumOfPrice2 * bagSize;
                     Log.d("tag55555", "sumOfPrice2: " + sumOfPrice2);
                 }
 
                 Log.d("tag55555", "dTotalPrice2: " + dTotalPrice2);
                 CartActivity.setTotalPrice(sumOfPrice2);
+//                 new CartActivity().loadArrayData();
+//                 new CartActivity().setTotalPayableNetPrice();
 
             }
         });
@@ -266,7 +275,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
                     finalCost[0] = finalCost[0] - cost2;
                     quantity[0]--;
 
-                    tv_sub_item_price.setText("Price: TK " + df.format(finalCost[0]));
+                    tv_sub_item_price.setText("Price: " +"\u09F3 " + df.format(finalCost[0] * bagSize));
                     tv_quantity.setText(String.valueOf(quantity[0]));
 
                     updateItemInCart(item_row_id, String.valueOf(bag_size[0]), String.valueOf(quantity[0]), String.valueOf(finalCost[0]));
@@ -277,12 +286,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
                     sumOfPrice2 = 0;
                     for (CartModel m : mCartList) {
 //                        sumOfPrice3 = sumOfPrice3 + Double.parseDouble(m.getSub_category_price()) * Double.parseDouble(m.getQuantity());
-                        sumOfPrice2 = sumOfPrice2 + Double.parseDouble(m.getSub_category_total_price());
+                        sumOfPrice2 = sumOfPrice2 + (Double.parseDouble(m.getSub_category_total_price()) * bagSize);
+//                        sumOfPrice2 = sumOfPrice2 * bagSize;
                     }
 
                     CartActivity.setTotalPrice(sumOfPrice2);
 
                     callEdittext();
+
+//                    new CartActivity().loadArrayData();
+//                    new CartActivity().setTotalPayableNetPrice();
 
                 }
 
@@ -381,6 +394,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
         TextView tv_remove_item;
         TextView tv_sub_item_extra;
         TextView tv_sub_item_price;
+        TextView tv_sub_item_unit_price;
         TextView tv_quantity;
 
         ImageView imageView;
@@ -394,6 +408,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.SubItemViewHol
             tv_bag_size = itemView.findViewById(R.id.tv_bag_size);
 //            tv_remove_item = itemView.findViewById(R.id.tv_remove_item);
             tv_sub_item_price = itemView.findViewById(R.id.tv_sub_item_price);
+            tv_sub_item_unit_price = itemView.findViewById(R.id.tv_sub_item_unit_price);
             tv_quantity = itemView.findViewById(R.id.tv_quantity);
 //            tv_remove_item = itemView.findViewById(R.id.tv_remove_item);
 //            tv_sub_item_extra = itemView.findViewById(R.id.tv_sub_item_extra);
