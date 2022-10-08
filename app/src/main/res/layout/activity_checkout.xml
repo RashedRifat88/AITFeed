@@ -39,7 +39,7 @@
                     android:layout_marginRight="2dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:padding="4dp"
+                    android:padding="8dp"
                     android:src="@drawable/ic_arrow_back_2"
                     app:tint="@color/white" />
 
@@ -70,7 +70,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:text="Checkout"
                         android:textColor="@color/white"
-                        android:textSize="22sp" />
+                        android:textSize="24sp" />
 
                 </LinearLayout>
 

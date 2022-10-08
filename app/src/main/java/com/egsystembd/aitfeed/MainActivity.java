@@ -49,6 +49,7 @@ import com.egsystembd.aitfeed.model.ProductCategory;
 import com.egsystembd.aitfeed.model.ProductList;
 import com.egsystembd.aitfeed.retrofit.RetrofitApiClient;
 import com.egsystembd.aitfeed.ui.bank_list.BankListActivity;
+import com.egsystembd.aitfeed.ui.ledger.LedgerActivity;
 import com.egsystembd.aitfeed.ui.payment.PaymentActivity;
 import com.egsystembd.aitfeed.ui.payment_list.PaymentListActivity;
 import com.egsystembd.aitfeed.utils.NetUtils;
@@ -680,9 +681,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if (item.getItemId() == R.id.menu6) {
-//            Intent intent = new Intent(MainActivity.this, InviteOthersActivity.class);;
+            Intent intent = new Intent(MainActivity.this, LedgerActivity.class);;
 //            intent.putExtra("menuName", menu_name);
-//            startActivity(intent);
+            startActivity(intent);
         }
 
 

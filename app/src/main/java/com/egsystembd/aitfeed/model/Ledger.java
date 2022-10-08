@@ -16,6 +16,17 @@ public class Ledger {
     @SerializedName("message")
     @Expose
     private String message;
+    @SerializedName("total")
+    @Expose
+    private Total total;
+
+    public Total getTotal() {
+        return total;
+    }
+
+    public void setTotal(Total total) {
+        this.total = total;
+    }
 
     public Boolean getSuccess() {
         return success;
@@ -39,6 +50,59 @@ public class Ledger {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+
+    public class Total {
+
+        @SerializedName("total_sale")
+        @Expose
+        private String total_sale;
+
+        @SerializedName("total_paid")
+        @Expose
+        private String total_paid;
+
+        @SerializedName("opening_balance")
+        @Expose
+        private String opening_balance;
+
+        @SerializedName("balance")
+        @Expose
+        private String balance;
+
+
+        public String getTotal_sale() {
+            return total_sale;
+        }
+
+        public void setTotal_sale(String total_sale) {
+            this.total_sale = total_sale;
+        }
+
+        public String getTotal_paid() {
+            return total_paid;
+        }
+
+        public void setTotal_paid(String total_paid) {
+            this.total_paid = total_paid;
+        }
+
+        public String getOpening_balance() {
+            return opening_balance;
+        }
+
+        public void setOpening_balance(String opening_balance) {
+            this.opening_balance = opening_balance;
+        }
+
+        public String getBalance() {
+            return balance;
+        }
+
+        public void setBalance(String balance) {
+            this.balance = balance;
+        }
     }
 
 
@@ -114,6 +178,5 @@ public class Ledger {
     }
 
 }
-
 
 

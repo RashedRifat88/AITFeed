@@ -6,9 +6,9 @@
     <color name="colorPrimary">#F44336</color>
     <color name="colorPrimary2">#00BCD4</color>
     <color name="colorPrimary3">#191B39</color>
-    <color name="colorPrimaryDark">#1565C0</color>
+    <color name="colorPrimaryDark">#A60D02</color>
     <color name="colorPrimaryLight">#1E88E5</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#3BA4F8</color>
     <color name="colorAccentDark">#F50057</color>
     <color name="colorAccentLight">#FF80AB</color>
 
@@ -363,6 +363,7 @@
     <color name="colorHint">#9A3485D5</color>
     <color name="colorHint2">@color/grey_400</color>
     <color name="notification_unread_bg">#204CC4FA</color>
+    <color name="textHintColorPrimary">#ff00ff</color>
 
 
     <array name="mdcolor_random">

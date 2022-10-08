@@ -1,9 +1,421 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".ui.ledger.LedgerActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--Top Bar-->
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner18"
+        android:minHeight="70dp"
+        android:padding="16dp"
+        tools:ignore="MissingConstraints">
+
+
+        <RelativeLayout
+            android:id="@+id/linear_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/iv_menu_top"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="2dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_back_2"
+                app:tint="@color/white" />
+
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/tv_title"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_marginTop="0dp"-->
+            <!--                android:gravity="center"-->
+            <!--                android:fontFamily="@font/roboto_bold"-->
+            <!--                android:text="AIT Feed Cart Items"-->
+            <!--                android:textColor="@color/yellow_200"-->
+            <!--                android:textSize="20sp" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:ignore="UnknownId">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Ledger"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@drawable/rounded_corner9"
+            android:padding="1dp"
+            android:text="শুরুর তারিখ"
+            android:textColor="#ffffff"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner10"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="শুরুর তারিখ" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    /////
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@drawable/rounded_corner9"
+            android:padding="1dp"
+            android:text="শেষের তারিখ"
+            android:textColor="#ffffff"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner10"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="শেষের তারিখ" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    /////
+
+
+    <LinearLayout
+        android:id="@+id/linear3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        android:layout_weight=".6"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--            <Button-->
+        <!--                android:visibility="invisible"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="25dp"-->
+        <!--                android:background="@drawable/rounded_corner9"-->
+        <!--                android:padding="1dp"-->
+        <!--                android:text="শুরুর তারিখ"-->
+        <!--                android:textColor="#ffffff"-->
+        <!--                android:textSize="10sp"-->
+        <!--                android:textStyle="bold" />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corner4"
+                android:padding="1dp"
+                android:fontFamily="@font/solaiman_lipi"
+                android:text="খুঁজুন"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    /////
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/linear4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@drawable/rounded_corner9"
+            android:padding="1dp"
+            android:text="Opening Balance"
+            android:textColor="#ffffff"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner10"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtOpeningBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="2.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    /////
+
+
+</LinearLayout>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/linear5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:background="@drawable/rounded_corner9"
+                android:padding="1dp"
+                android:text="Total Sale"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner10"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_total_sale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="2.5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        /////
+
+        <LinearLayout
+            android:id="@+id/linear6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:background="@drawable/rounded_corner9"
+                android:padding="1dp"
+                android:text="Total Collection"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner10"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_total_collection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="2.5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        /////
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_marginBottom="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <!--<EditText-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/editTextSearch"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:layout_marginBottom="2dp"-->
+            <!--android:background="@drawable/rounded_corner_searchbox2"-->
+            <!--android:hint="Enter search term"-->
+            <!--android:label="@string/app_name"-->
+            <!--android:textAllCaps="false" />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:visibility="gone" />
+
+
+            <HorizontalScrollView
+                android:id="@+id/horizontal1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recyclerView"
+                android:layout_marginTop="10dp">
+
+                <TableLayout
+                    android:id="@+id/table"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="0,1,2,3,4,5" />
+
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
+</LinearLayout>
